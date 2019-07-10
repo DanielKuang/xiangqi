@@ -3,7 +3,6 @@ import CapturedPieces from './capturedPieces.js';
 import GameBoard from './gameBoard.js';
 import initializeBoard from '../helpers/initBoard.js';
 import '../../public/css/index.css';
-import FallenSoldierBlock from '../../../../Project Chess with React/react-chess/src/components/fallensoldierblock.js';
 
 
 export default class Game extends React.Component {
@@ -132,7 +131,7 @@ export default class Game extends React.Component {
             <div>
                 <div className='game'>
                     <div className='gameboard'>
-                        <Board tiles= {this.state.tiles} onClick= {(i) => clickHandler(i)} />
+                        <GameBoard tiles= {this.state.tiles} onClick= {(i) => clickHandler(i)} />
                     </div>
                     <div className='gamestats'>
                         <h5>Game Stats</h5>
@@ -141,7 +140,7 @@ export default class Game extends React.Component {
                         <h3>Current Player's Turn</h3>
                         <div id="turnbox" style={{backgroundColor: color}}></div>
                         <div className='capturedpieces'>
-                            {<FallenSoldierBlock capturedBlackPieces={this.state.capturedBlackPieces} capturedRedPieces={this.state.capturedRedPieces} />}
+                            {<CapturedPieces capturedBlackPieces={this.state.capturedBlackPieces} capturedRedPieces={this.state.capturedRedPieces} />}
                         </div>
                     </div>
                 </div>

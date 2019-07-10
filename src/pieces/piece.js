@@ -1,4 +1,6 @@
-import Pawn from './pawn.js'
+import Pawn from './pawn.js';
+import King from './king.js';
+import Queen from './queen.js';
 
 export default class Piece {
     contructor(player, imgDir){
