@@ -1,3 +1,4 @@
+import React from 'react';
 import '../../public/css/index.css';
 import Tile from './tile.js';
 
@@ -5,7 +6,7 @@ import Tile from './tile.js';
 export default class GameBoard extends React.Component {
 
     renderTile(pieceIndx) {
-        return (<Tile onClick = {this.props.onClick} piece={this.props.tiles[pieceIndx]} style={this.props.tiles[pieceIndx].style}/>)
+        return (<Tile onClick = {() => this.props.onClick(pieceIndx)} piece={this.props.tiles[pieceIndx]} style={this.props.tiles[pieceIndx].style}/>)
     } 
 
     render(){

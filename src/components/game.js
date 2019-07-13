@@ -1,4 +1,4 @@
-import 'React';
+import React from 'react';
 import CapturedPieces from './capturedPieces.js';
 import GameBoard from './gameBoard.js';
 import initializeBoard from '../helpers/initBoard.js';
@@ -139,6 +139,7 @@ export default class Game extends React.Component {
                         <h3>Checked? {this.state.checked}</h3>
                         <h3>Current Player's Turn</h3>
                         <div id="turnbox" style={{backgroundColor: color}}></div>
+                        <h3>{this.state.status}</h3>
                         <div className='capturedpieces'>
                             {<CapturedPieces capturedBlackPieces={this.state.capturedBlackPieces} capturedRedPieces={this.state.capturedRedPieces} />}
                         </div>
