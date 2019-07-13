@@ -2,7 +2,7 @@ import React from 'react';
 import CapturedPieces from './capturedPieces.js';
 import GameBoard from './gameBoard.js';
 import initializeBoard from '../helpers/initBoard.js';
-import '../../public/css/index.css';
+import '../index.css';
 
 
 export default class Game extends React.Component {
