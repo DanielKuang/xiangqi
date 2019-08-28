@@ -7,7 +7,7 @@ export default class Rook extends Piece{
 
     isMovePossible(curr_pos, next_pos){
         return (Math.abs(next_pos-curr_pos) % 9===0 ||
-        ((9 - curr_pos+curr_pos%9) > dest >= (curr_pos - curr_pos%9))
+        ((9 - curr_pos+curr_pos%9) > next_pos >= (curr_pos - curr_pos%9))
         );
     }
 
@@ -34,11 +34,11 @@ export default class Rook extends Piece{
             start = 1;
         }
 
-        for (i = start; i < end; i += increment) {
+        for (let i = start; i < end; i += increment) {
             path.push(i);
         }
         
-        return i;
+        return path;
     }
 }
 

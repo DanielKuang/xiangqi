@@ -6,7 +6,7 @@ export default class Cannon extends Piece{
     }
 
     isMovePossible(curr_pos, next_pos, destOccupied){
-        if ((Math.abs(next_pos-curr_pos) % 9===0 || ((9 - curr_pos+curr_pos%9) > dest >= (curr_pos - curr_pos%9))) && !(destOccupied)) {
+        if ((Math.abs(next_pos-curr_pos) % 9===0 || ((9 - curr_pos+curr_pos%9) > next_pos >= (curr_pos - curr_pos%9))) && !(destOccupied)) {
             return true;
         } else if (destOccupied && (this.getPathtoDest(curr_pos, next_pos).length === 1)){
             return true;
@@ -37,11 +37,11 @@ export default class Cannon extends Piece{
             start = 1;
         }
 
-        for (i = start; i < end; i += increment) {
+        for (let i = start; i < end; i += increment) {
             path.push(i);
         }
         
-        return i;
+        return path;
 
     }
 }

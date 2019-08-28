@@ -35,7 +35,7 @@ export default class Elephant extends Piece{
             increment = 10;
         }
 
-        for (i=start;i<end;i+=increment){
+        for (let i=start;i<end;i+=increment){
             path.push(i);
         }
 

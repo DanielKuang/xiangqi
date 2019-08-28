@@ -12,9 +12,9 @@ export default class GameBoard extends React.Component {
     render(){
         const board = [];
 
-        for (rowIndx=0; rowIndx<10; rowIndx++){
+        for (let rowIndx=0; rowIndx<10; rowIndx++){
             const row = [];
-            for (colIndx=0; colIndx<9; colIndx++){
+            for (let colIndx=0; colIndx<9; colIndx++){
                 row.push(this.renderTile(rowIndx*9+colIndx));
             }
             board.push(<div>{row}</div>);

@@ -1,24 +1,22 @@
-import Pawn from './pawn.js';
-import King from './king.js';
-import Queen from './queen.js';
+import React from 'react'
 
-export default class Piece {
+export default class Piece extends React.Component {
     contructor(player, imgDir){
         this.player = player;
         this.style = {backgroundImage: "url('"+imgDir+"')"};
     }
 
-    canCrossRiver() {
-        if (this instanceof Pawn) {
-            return true;
-        }
-        return false;
-    }
+    // canCrossRiver() {
+    //     if (this instanceof Pawn) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
-    canCrossHome(){
-        if (!(this instanceof King || this instanceof Queen)) {
-            return true;
-        }
-        return false;
-    }
+    // canCrossHome(){
+    //     if (!(this instanceof King || this instanceof Queen)) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 }

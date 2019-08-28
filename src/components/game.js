@@ -26,6 +26,7 @@ export default class Game extends React.Component {
 
 
     clickHandler(i){
+        let {indxOfSelectedPiece, gameEnd, threatPieceIndx, blackKingIndx, redKingIndx, checked,tiles} = this.state
 
         if (gameEnd){
             this.setState({status:'The game has ended. Please click restart for another round.'});
@@ -54,7 +55,7 @@ export default class Game extends React.Component {
                     // also check if next player checks the other player and dodges its own check - done
                     let next_player = (this.state.turn === 1 ? 2 : 1);
                     let foeKingIndx = next_player === 1 ? this.state.blackKingIndx : this.state.redKingIndx
-                    anotherCheck = false;
+                    let anotherCheck = false;
                     if (this.state.tiles[i].isMovePossible(i, foeKingIndx) && this.isMoveLegal(this.state.tiles[i].getPathtoDest(i, foeKingIndx))) {
                         anotherCheck = true;
                     }
@@ -90,6 +91,7 @@ export default class Game extends React.Component {
     }
 
     isMoveLegal(pathToDest){
+        let indx = 0;
         for (indx in pathToDest){
             if (this.state.tiles[indx] !== null) {
                 return false;
@@ -107,7 +109,8 @@ export default class Game extends React.Component {
     }
 
     makeMove(i){
-        whoseTurn = this.state.turn === 1 ? 2 : 1
+        let {indxOfSelectedPiece, tiles, capturedBlackPieces, capturedRedPieces} = this.state
+        let whoseTurn = this.state.turn === 1 ? 2 : 1
         tiles = this.state.tiles.slice()
         let capturedPieceArray = (this.state.turn === 1 ? capturedRedPieces.slice() : capturedBlackPieces.slice());
         
@@ -126,12 +129,12 @@ export default class Game extends React.Component {
 
 
     render(){
-        color = this.state.turn === 1 ? 'red' : 'black'
+        let color = this.state.turn === 1 ? 'red' : 'black'
         return (
             <div>
                 <div className='game'>
                     <div className='gameboard'>
-                        <GameBoard tiles= {this.state.tiles} onClick= {(i) => clickHandler(i)} />
+                        <GameBoard tiles= {this.state.tiles} onClick= {(i) => this.clickHandler(i)} />
                     </div>
                     <div className='gamestats'>
                         <h5>Game Stats</h5>

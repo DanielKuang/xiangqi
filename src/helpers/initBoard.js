@@ -10,7 +10,7 @@ import Elephant from '../pieces/elephant.js'
 export default function initBoard(){
     const tiles = Array(90).fill(null);
 
-    for (i=27;i<36;i+=2) {
+    for (let i=27;i<36;i+=2) {
         tiles[i] = new Pawn(2);
         tiles[i+27] = new Pawn(1);
     }
