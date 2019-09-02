@@ -1,5 +1,4 @@
 import React from 'react';
-import '../index.css';
 import Tile from './tile.js';
 
 
