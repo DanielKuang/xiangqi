@@ -1,13 +1,12 @@
-import Pawn from '../pieces/pawn.js'
-import King from '../pieces/king.js'
-import Cannon from '../pieces/cannon.js'
-import Queen from '../pieces/queen.js'
-import Horse from '../pieces/horse.js'
-import Rook from '../pieces/rook.js'
-import Elephant from '../pieces/elephant.js'
+import King from '../pieces/king.js';
+import Queen from '../pieces/queen.js';
+import Elephant from '../pieces/elephant.js';
+import Rook from '../pieces/rook.js';
+import Horse from '../pieces/horse.js';
+import Pawn from '../pieces/pawn.js';
+import Cannon from '../pieces/cannon.js';
 
-
-export default function initBoard(){
+export default function initializeChessBoard(){
     const tiles = Array(90).fill(null);
 
     for (let i=27;i<36;i+=2) {
@@ -44,5 +43,6 @@ export default function initBoard(){
     tiles[4+81] = new King(1);
 
     return tiles;
+
 
 }

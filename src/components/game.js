@@ -76,11 +76,6 @@ export default class Game extends React.Component {
                     });
                 }
                 else {
-                    let next_pos = i;
-                    let curr_pos = this.state.sourceSelection;
-                    console.log(isMoveLegal)
-                    console.log(isMovePossible)
-                    console.log(srcToDestPath)
                     this.setState({
                         status: "Wrong selection. Choose valid source and destination again.",
                         sourceSelection: -1,
