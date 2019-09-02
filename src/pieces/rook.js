@@ -1,44 +1,40 @@
-import Piece from "./piece.js"
+import Piece from './piece.js';
 
-export default class Rook extends Piece{
+export default class Rook extends Piece {
     constructor(player){
-        super(player, (player === 1 ? "../public/xiangqi_pieces/red_rk.png" : "../public/xiangqi_pieces/black_rk.png"))
+        super(player, (player === 1 ? "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg"));
     }
 
     isMovePossible(curr_pos, next_pos){
         return (Math.abs(next_pos-curr_pos) % 9===0 ||
-        ((9 - curr_pos+curr_pos%9) > next_pos >= (curr_pos - curr_pos%9))
+        ((9-(curr_pos%9) + curr_pos) > next_pos) && (next_pos >= (curr_pos - curr_pos%9))
         );
     }
 
-    getPathtoDest(curr_pos, next_pos) {
-        let path = [], start, end, increment;
+    getSrcToDestPath(curr_pos, next_pos){
+        let path = [], pathStart, pathEnd, incrementBy;
 
-        if(curr_pos>next_pos) {
-            start = next_pos;
-            end = curr_pos;
+        if (curr_pos>next_pos){
+            pathStart = next_pos;
+            pathEnd = curr_pos;
+        }
+        else{
+            pathStart = curr_pos;
+            pathEnd = next_pos;
         }
 
+        if(Math.abs(curr_pos-next_pos) % 9 === 0){
+            incrementBy = 9;
+            pathStart += 9;
+        }
         else {
-            start = curr_pos;
-            end = next_pos;
+            incrementBy = 1;
+            pathStart += 1;
         }
 
-        if (Math.abs(curr_pos-next_pos) % 9 === 0) {
-            increment = 9;
-            start = 9;
-        }
-
-        else {
-            increment = 1;
-            start = 1;
-        }
-
-        for (let i = start; i < end; i += increment) {
+        for (let i = pathStart; i < pathEnd; i += incrementBy) {
             path.push(i);
         }
-        
         return path;
     }
 }
-

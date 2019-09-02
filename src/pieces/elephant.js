@@ -1,8 +1,8 @@
-import Piece from "./piece.js"
+import Piece from './piece.js';
 
-export default class Elephant extends Piece{
-    constructor(player) {
-        super(player, (player === 1 ? "../public/xiangqi_pieces/red_et.png" : "../public/xiangqi_pieces/black_et.png"))
+export default class Elephant extends Piece {
+    constructor(player){
+        super(player, (player === 1 ? "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg"));
     }
 
     isMovePossible(curr_pos, next_pos){
@@ -13,7 +13,7 @@ export default class Elephant extends Piece{
         );
     }
 
-    getPathtoDest(curr_pos, next_pos){
+    getSrcToDestPath(curr_pos, next_pos){
         let path = [], start, end, increment;
         
         if (curr_pos > next_pos){
@@ -43,4 +43,3 @@ export default class Elephant extends Piece{
 
     }
 }
-

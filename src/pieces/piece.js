@@ -1,22 +1,6 @@
-import React from 'react'
-
-export default class Piece extends React.Component {
-    contructor(player, imgDir){
+export default class Piece {
+    constructor(player, iconUrl){
         this.player = player;
-        this.style = {backgroundImage: "url('"+imgDir+"')"};
+        this.style = {backgroundImage: "url('"+iconUrl+"')"};
     }
-
-    // canCrossRiver() {
-    //     if (this instanceof Pawn) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
-
-    // canCrossHome(){
-    //     if (!(this instanceof King || this instanceof Queen)) {
-    //         return true;
-    //     }
-    //     return false;
-    // }
 }

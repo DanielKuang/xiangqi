@@ -1,8 +1,8 @@
-import Piece from "./piece.js"
+import Piece from './piece.js';
 
-export default class Queen extends Piece{
-    constructor(player){
-        super(player, (player === 1 ? "../public/xiangqi_pieces/red_qn.png" : "../public/xiangqi_pieces/black_qn.png"))
+export default class Queen extends Piece {
+    constructor(player) {
+        super(player, player === 1? "https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg");
     }
 
     isMovePossible(curr_pos, next_pos) {
@@ -12,9 +12,7 @@ export default class Queen extends Piece{
         (curr_pos-10 == next_pos));
     }
 
-    getPathtoDest(curr_pos, next_pos) {
-        return []; // Queen only moves in diagonal, one step.
+    getSrcToDestPath(curr_pos,next_pos){
+        return [];
     }
-
 }
-

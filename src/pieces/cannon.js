@@ -1,48 +1,41 @@
-import Piece from "./piece.js"
+import Piece from './piece.js';
 
-export default class Cannon extends Piece{
+export default class Cannon extends Piece {
     constructor(player){
-        super(player, (player === 1 ? "../public/xiangqi_pieces/red_cn.png" : "../public/xiangqi_pieces/black_cn.png"))
+        super(player, (player === 1 ? "https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg"));
     }
 
-    isMovePossible(curr_pos, next_pos, destOccupied){
-        if ((Math.abs(next_pos-curr_pos) % 9===0 || ((9 - curr_pos+curr_pos%9) > next_pos >= (curr_pos - curr_pos%9))) && !(destOccupied)) {
-            return true;
-        } else if (destOccupied && (this.getPathtoDest(curr_pos, next_pos).length === 1)){
+    isMovePossible(curr_pos, next_pos){
+        if (Math.abs(next_pos-curr_pos) % 9===0 || (((9-(curr_pos%9) + curr_pos) > next_pos) && (next_pos >= (curr_pos - curr_pos%9)))) {
             return true;
         }
         return false;
     }
 
-    getPathtoDest(curr_pos, next_pos) {
-        let path = [], start, end, increment;
+    getSrcToDestPath(curr_pos, next_pos){
+        let path = [], pathStart, pathEnd, incrementBy;
 
-        if(curr_pos>next_pos) {
-            start = next_pos;
-            end = curr_pos;
+        if (curr_pos>next_pos){
+            pathStart = next_pos;
+            pathEnd = curr_pos;
+        }
+        else{
+            pathStart = curr_pos;
+            pathEnd = next_pos;
         }
 
+        if(Math.abs(curr_pos-next_pos) % 9 === 0){
+            incrementBy = 9;
+            pathStart += 9;
+        }
         else {
-            start = curr_pos;
-            end = next_pos;
+            incrementBy = 1;
+            pathStart += 1;
         }
 
-        if (Math.abs(curr_pos-next_pos) % 9 === 0) {
-            increment = 9;
-            start = 9;
-        }
-
-        else {
-            increment = 1;
-            start = 1;
-        }
-
-        for (let i = start; i < end; i += increment) {
+        for (let i = pathStart; i < pathEnd; i += incrementBy) {
             path.push(i);
         }
-        
         return path;
-
     }
 }
-
