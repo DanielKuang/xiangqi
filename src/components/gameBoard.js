@@ -3,10 +3,10 @@ import Tile from './tile.js';
 
 
 export default class GameBoard extends React.Component {
-    renderSquare(i, squareShade){
-        return <Tile piece = {this.props.squares[i]} 
-            style = {this.props.squares[i] ? this.props.squares[i].style : null} 
-            shade = {squareShade} 
+    renderTile(i, tileShade){
+        return <Tile piece = {this.props.tiles[i]} 
+            style = {this.props.tiles[i] ? this.props.tiles[i].style : null} 
+            shade = {tileShade} 
             onClick = {() => this.props.onClick(i)} 
             />
     }
@@ -17,7 +17,7 @@ export default class GameBoard extends React.Component {
         for (let rowIndx=0; rowIndx<10; rowIndx++){
             const row = [];
             for (let colIndx=0; colIndx<9; colIndx++){
-                row.push(this.renderSquare(rowIndx*9+colIndx, isEven(rowIndx+colIndx) ? 'light-tile' : 'dark-tile'));
+                row.push(this.renderTile(rowIndx*9+colIndx, isEven(rowIndx+colIndx) ? 'light-tile' : 'dark-tile'));
             }
             board.push(<div>{row}</div>);
         }

@@ -6,7 +6,7 @@ import Horse from '../pieces/horse.js';
 import Pawn from '../pieces/pawn.js';
 import Cannon from '../pieces/cannon.js';
 
-export default function initializeChessBoard(){
+export default function initBoard(){
     const tiles = Array(90).fill(null);
 
     for (let i=27;i<36;i+=2) {
