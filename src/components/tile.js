@@ -1,6 +1,10 @@
 import React from 'react';
-import '../index.css'
 
-export default function Tile(props){
-    return (<button onClick = {props.onClick}></button>)
+export default function Tile(props) {
+    return (
+        <button className = {"tile"  + props.shade}
+        onClick = {props.onClick}
+        style = {props.style}>
+        </button>
+    );
 }
