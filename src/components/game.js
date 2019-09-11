@@ -103,14 +103,16 @@ export default class Game extends React.Component {
             if (srcPiece.constructor.name === "Cannon") {
                 if (this.state.tiles[srcToDestPath[i]] !== null){
                     cannonCounter++;
-                    isLegal = false;
-                }
-                if (cannonCounter === 1 && isDestEnemyOccupied){
-                    isLegal = true;
                 }
             } else if (this.state.tiles[srcToDestPath[i]] !== null) {
                 isLegal = false;
             }
+        }
+
+        if (cannonCounter === 1 && isDestEnemyOccupied) {
+            isLegal = true;
+        } else if (srcPiece.constructor.name === "Cannon" && isDestEnemyOccupied) {
+            isLegal = false;
         }
         return isLegal;
     }
