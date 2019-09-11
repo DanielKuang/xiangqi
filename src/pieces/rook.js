@@ -2,12 +2,12 @@ import Piece from './piece.js';
 
 export default class Rook extends Piece {
     constructor(player){
-        super(player, (player === 1 ? "https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg" : "https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg"));
+        super(player, (player === 1 ? "./xiangqi_pieces/red_rk.png" : "./xiangqi_pieces/black_rk.png"));
     }
 
     isMovePossible(curr_pos, next_pos){
         return (Math.abs(next_pos-curr_pos) % 9===0 ||
-        ((9-(curr_pos%9) + curr_pos) > next_pos) && (next_pos >= (curr_pos - curr_pos%9))
+        (((9-(curr_pos%9) + curr_pos) > next_pos) && (next_pos >= (curr_pos - curr_pos%9)))
         );
     }
 

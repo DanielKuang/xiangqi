@@ -4,7 +4,7 @@ import Tile from './tile.js';
 
 export default class GameBoard extends React.Component {
     renderTile(i, tileShade){
-        return <Tile piece = {this.props.tiles[i]} 
+        return <Tile key={i} piece = {this.props.tiles[i]} 
             style = {this.props.tiles[i] ? this.props.tiles[i].style : null} 
             shade = {tileShade} 
             onClick = {() => this.props.onClick(i)} 
@@ -19,7 +19,7 @@ export default class GameBoard extends React.Component {
             for (let colIndx=0; colIndx<9; colIndx++){
                 row.push(this.renderTile(rowIndx*9+colIndx, isEven(rowIndx+colIndx) ? 'light-tile' : 'dark-tile'));
             }
-            board.push(<div>{row}</div>);
+            board.push(<div key={rowIndx}>{row}</div>);
         }
 
         return (<div>{board}</div>);

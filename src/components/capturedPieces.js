@@ -4,7 +4,7 @@ import Tile from './tile.js';
 
 export default class CapturedPieces extends React.Component {
     renderTile(chess_piece, indx){
-        return (<Tile piece = {chess_piece} style = {chess_piece.style}/>)
+        return (<Tile key={indx} piece = {chess_piece} style = {chess_piece.style}/>)
     }
 
     render(){
